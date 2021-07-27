@@ -16,6 +16,7 @@ class Login extends Component {
 
   entrar(e) {
     e.preventDefault();
+    this.login();
   }
 
   login = async () => {
@@ -30,10 +31,17 @@ class Login extends Component {
           return null;
         }
       });
+      this.props.history.replace('dashboard');
     } catch (error) {
       alert(error.message);
     }
   };
+
+  componentDidMount() {
+    if (firebase.getCurrent()) {
+      return this.props.history.replace('dashboard');
+    }
+  }
 
   render() {
     return (
