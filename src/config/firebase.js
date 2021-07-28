@@ -1,15 +1,16 @@
 import app from 'firebase/app';
 import 'firebase/database';
 import 'firebase/auth';
+import 'firebase/storage';
 
 let firebaseConfig = {
-  apiKey: 'AIzaSyC1H1YSgFfvVXNBwJ4pRZ0XBdeW59PQKJg',
-  authDomain: 'blog-30b4d.firebaseapp.com',
-  projectId: 'blog-30b4d',
-  storageBucket: 'blog-30b4d.appspot.com',
-  messagingSenderId: '849863243750',
-  appId: '1:849863243750:web:0a6194d0b25e1c3b058827',
-  measurementId: 'G-GNJFG1ZVL3',
+  apiKey: '',
+  authDomain: '',
+  projectId: '',
+  storageBucket: '',
+  messagingSenderId: '',
+  appId: '',
+  measurementId: '',
 };
 // Initialize Firebase
 
@@ -17,6 +18,7 @@ class Firebase {
   constructor() {
     app.initializeApp(firebaseConfig);
     this.app = app.database();
+    this.storage = app.storage();
   }
 
   login(email, password) {
@@ -49,6 +51,10 @@ class Firebase {
 
     const uid = app.auth().currentUser.uid;
     await app.database().ref('usuarios').child(uid).once('value').then(cb);
+  }
+
+  getCurrentUid() {
+    return app.auth().currentUser && app.auth().currentUser.uid;
   }
 
   logout() {
