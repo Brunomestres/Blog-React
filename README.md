@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+![Badge](https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=white&style=flat)
+![Badge](https://img.shields.io/badge/-NPM-red?logo=npm&logoColor=white&style=flat)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## :rocket: Descrição do Projeto  
+
+Implementação simples de um blog feito em React com suporte a conexão direta com o Firebase.
 
 ## Available Scripts
 
